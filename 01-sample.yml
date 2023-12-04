@@ -2,9 +2,5 @@
   hosts: all
   tasks: 
     - name: task1
-      ansible.builtin.debug
+      ansible.builtin.debug:
         msg: Hello from task1
-
-    - name: task2
-      ansible.builtin.debug
-        msg: Hello from task2
