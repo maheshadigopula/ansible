@@ -2,6 +2,8 @@
   hosts: all
   vars:
     Link: Global.com
+  vars_file:
+    varfile.yaml
   tasks:
     - name: Printing GLobal variables
       ansible.builtin.debug:
@@ -16,4 +18,7 @@
     - name: Printing CLI variables
       ansible.builtin.debug:
         msg: "{{CLI_Link}}"
-        
+
+    - name: Printing File variables
+      ansible.builtin.debug:
+        msg: "{{file_Link}}"
