@@ -2,7 +2,7 @@
   hosts: all
   vars:
     Link: Global.com
-  vars_file:
+  vars_files:
     varfile.yaml
   tasks:
     - name: Printing GLobal variables
