@@ -12,4 +12,8 @@
         msg: Local variable is {{Link}}
       vars:
         Link: Local.com
+
+    - name: Printing CLI variables
+      ansible.builtin.debug:
+        msg: "{{CLI_Link}}"
         
