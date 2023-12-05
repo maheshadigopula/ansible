@@ -1,0 +1,8 @@
+- name: Demo on variables
+  hosts: all
+  vars:
+    Link: Global.com
+  tasks:
+    - name: Printing GLobal variables
+      ansible.builtin.debug:
+        msg: "{{}}"
