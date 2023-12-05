@@ -26,3 +26,7 @@
     - name: Printing File variables
       ansible.builtin.debug:
         msg: "{{file_Link}}"
+
+    - name: Printing Prompt variable
+      ansible.builtin.debug:
+        msg: "{{prompt_Link}}"
