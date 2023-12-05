@@ -4,6 +4,10 @@
     Link: Global.com
   vars_files:
     varfile.yaml
+  vars_prompt:
+    - name: prompt_Link
+      prompt: Enter prompt variable
+      private: false
   tasks:
     - name: Printing GLobal variables
       ansible.builtin.debug:
