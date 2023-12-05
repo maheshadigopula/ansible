@@ -6,3 +6,10 @@
     - name: Printing GLobal variables
       ansible.builtin.debug:
         msg: "{{Link}}"
+
+    - name: Printing Local variables
+      ansible.builtin.debug:
+        msg: Local variable is {{Link}}
+      vars:
+        Link: Local.com
+        
