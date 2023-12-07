@@ -2,6 +2,7 @@
   hosts: all
   vars:
     actions: true
+    test: 1
   tasks:
     - name: Run this on centos machione only
       ansible.builtin.debug:
@@ -17,3 +18,8 @@
       ansible.builtin.debug:
         msg: I will run this only when actions is true
       when: actions
+
+    - name: Run this only when test variable is declared
+      ansible.builtin.debug:
+        msg: I will run this only when variable test is declared
+      when: test
