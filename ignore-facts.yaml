@@ -5,3 +5,7 @@
       ansible.builtin.shell:
       register: OUT
       ignore_errors: yes
+
+    - name: Starting tomcat
+      ansible.builtin.debug:
+        msg: Starting tomcat
