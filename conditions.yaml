@@ -22,4 +22,4 @@
     - name: Run this only when test variable is declared
       ansible.builtin.debug:
         msg: I will run this only when variable test is declared
-      when: test
+      when: test is defined
