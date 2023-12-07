@@ -1,0 +1,7 @@
+- name: Demo on Ignore facts
+  hosts: all
+  tasks:
+    - name: Checking where tomcat is running or not
+      ansible.builtin.shell:
+      register: OUT
+      ignore_error: yes
