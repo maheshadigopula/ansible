@@ -2,7 +2,7 @@
   hosts: all
   vars:
     actions: true
-    # test: 1
+    test: 1
   tasks:
     - name: Run this on centos machione only
       ansible.builtin.debug:
