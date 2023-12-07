@@ -4,4 +4,4 @@
     - name: Checking where tomcat is running or not
       ansible.builtin.shell:
       register: OUT
-      ignore_error: yes
+      ignore_errors: yes
