@@ -24,6 +24,7 @@
   ansible.builtin.copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+    notify: Restart Nginx
 
 - name: restart frontend service
   ansible.builtin.service:
