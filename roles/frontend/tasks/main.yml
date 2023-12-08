@@ -29,6 +29,5 @@
   ansible.builtin.service:
     name: nginx
     state: restarted
-    remote_src: yes
 
 
