@@ -13,3 +13,15 @@
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
+
+- name: Copying the nginx content to nginx path
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+
+- name: Copying nginx config file
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
