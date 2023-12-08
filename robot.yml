@@ -1,0 +1,5 @@
+- name: Configuring robot project
+  hosts: frontend
+  become: yes
+  roles:
+    frontend
