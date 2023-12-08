@@ -1,6 +1,6 @@
 - name: Configuring robot project
-  hosts: frontend
+  hosts: "{{component}}"
   become: yes
   roles:
-    - frontend
+    - "{{component}}"
 
