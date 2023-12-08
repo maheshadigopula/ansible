@@ -1,0 +1,10 @@
+- name: Demo on facts
+  hosts: all
+  tasks:
+    - name: task1
+      ansible.builtin.debug:
+        msg: OS Distribution = {{ansible_distribution}}
+
+    - name: task2
+      ansible.builtin.debug:
+        msg: Mac Address = {{ansible_default_ipv4.macaddress}}

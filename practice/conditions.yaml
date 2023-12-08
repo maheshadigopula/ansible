@@ -1,0 +1,25 @@
+- name: Demo on conditions
+  hosts: all
+  vars:
+    actions: true
+    test: 1
+  tasks:
+    - name: Run this on centos machione only
+      ansible.builtin.debug:
+        msg: Hai I am on centos
+      when: ansible_distribution == "CentOS"
+
+    - name: Run this on Ubuntu machine only
+      ansible.builtin.debug:
+        msg: Hai I am on Ubuntu
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Run this actions
+      ansible.builtin.debug:
+        msg: I will run this only when actions is true
+      when: actions
+
+    - name: Run this only when test variable is declared
+      ansible.builtin.debug:
+        msg: I will run this only when variable test is declared
+      when: test is defined

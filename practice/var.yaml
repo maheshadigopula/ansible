@@ -1,0 +1,32 @@
+- name: Demo on variables
+  hosts: all
+  vars:
+    Link: Global.com
+  vars_files:
+    varfile.yaml
+  vars_prompt:
+    - name: prompt_Link
+      prompt: Enter prompt variable
+      private: false
+  tasks:
+    - name: Printing GLobal variables
+      ansible.builtin.debug:
+        msg: "{{Link}}"
+
+    - name: Printing Local variables
+      ansible.builtin.debug:
+        msg: Local variable is {{Link}}
+      vars:
+        Link: Local.com
+
+    - name: Printing CLI variables
+      ansible.builtin.debug:
+        msg: "{{CLI_Link}}"
+
+    - name: Printing File variables
+      ansible.builtin.debug:
+        msg: "{{file_Link}}"
+
+    - name: Printing Prompt variable
+      ansible.builtin.debug:
+        msg: "{{prompt_Link}}"
