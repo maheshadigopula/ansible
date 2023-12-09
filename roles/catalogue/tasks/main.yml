@@ -43,5 +43,3 @@
   ansible.builtin.service:
     name: catalogue
     state: started
-
-
