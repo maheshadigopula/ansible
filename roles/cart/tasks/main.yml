@@ -1,0 +1,45 @@
+- name: Configuring NodeJS Repo
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+
+- name: Install NodeJS
+  ansible.builtin.package:
+    name: nodejs
+    state: present
+
+- name: Creating the user {{APPUSER}}
+  ansible.builtin.user:
+    name: "{{APPUSER}}"
+    comment: roboshop service user
+
+- name: Download and extracting
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/{{component}}/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Cleaning the OLD content
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{component}}/
+    state: absent
+
+- name: Copying files to roboshop home directory
+  ansible.builtin.copy:
+    src: /tmp/{{component}}-main/
+    dest: /home/{{APPUSER}}/{{component}}/
+    remote_src: yes
+    owner: "{{APPUSER}}"
+    group: "{{APPUSER}}"
+
+- name: Install node.js packages
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{component}}/
+
+- name: Configuring the systemd service file
+  ansible.builtin.template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{component}}.service
+
+- name: Restarting service
+  ansible.builtin.service:
+    name: user
+    state: started
