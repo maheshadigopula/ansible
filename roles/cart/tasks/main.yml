@@ -43,3 +43,6 @@
   ansible.builtin.service:
     name: user
     state: started
+
+- name: set-hostname
+  ansible.builtin.shell: set-hostname {{component}}
