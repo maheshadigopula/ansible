@@ -18,3 +18,6 @@
   ansible.builtin.service:
     name: redis
     state: started
+
+- name: Set-hostname
+  ansible.builtin.shell: set-hostname {{component}}
