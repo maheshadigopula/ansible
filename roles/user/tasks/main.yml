@@ -38,3 +38,9 @@
   ansible.builtin.template:
     src: systemd.service
     dest: /etc/systemd/system/{{component}}.service
+    
+- name: Restarting service
+  ansible.builtin.service:
+    name: user
+    state: started
+
