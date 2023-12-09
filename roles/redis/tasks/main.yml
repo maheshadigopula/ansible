@@ -1,0 +1,10 @@
+- name: Copying Redis repo
+  ansible.builtin.copy:
+    src: redis.repo
+    dest: /etc/yum.repos.d/redis.repo
+
+- name: Install Redis
+  ansible.builtin.package:
+    name: redis-6.2.13
+    state: present
+
