@@ -13,3 +13,8 @@
     path: /etc/{{component}}/{{component}}.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
+
+- name: Starting Redis service
+  ansible.builtin.service:
+    name: redis
+    state: started
