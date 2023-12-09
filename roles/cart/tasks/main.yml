@@ -41,7 +41,7 @@
 
 - name: Restarting service
   ansible.builtin.service:
-    name: user
+    name: cart
     state: started
 
 - name: set-hostname
