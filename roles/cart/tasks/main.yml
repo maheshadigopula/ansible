@@ -35,9 +35,9 @@
     path: /home/{{APPUSER}}/{{component}}/
 
 - name: Configuring the systemd service file
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: systemd.service
-    dest: /etc/systemd/system/{{component}}.service
+    dest: /etc/systemd/system/{{component}}.service 
 
 - name: Restarting service
   ansible.builtin.service:
