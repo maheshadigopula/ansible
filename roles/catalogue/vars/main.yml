@@ -1,2 +1,2 @@
-APPUSER=roboshop
-component=catalogue
+APPUSER: roboshop
+component: catalogue
