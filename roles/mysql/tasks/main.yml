@@ -29,6 +29,6 @@
         src: /var/log/mysqld.log
       register: mysql_log
 
-    - name: 
-      ansible.builtin.debug:
-        msg: "{{mysql_log}}"
+    - name: Declare facts
+      ansible.builtin.set_fact:
+        Default_pass: "{{mysql_log['content'] | b64decode}}"
