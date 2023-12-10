@@ -8,3 +8,8 @@
     name: mysql-community-server
     state: present
 
+- name: Starting mysql service
+  ansible.builtin.service:
+    name: mysqld
+    state: restarted
+
