@@ -30,5 +30,5 @@
       register: mysql_log
 
     - name: 
-      ansible.builtin.set_fact:
+      ansible.builtin.debug:
         msg: mysql_log
