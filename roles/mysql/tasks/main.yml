@@ -35,3 +35,7 @@
 
     - name: Change MySQL
       ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{DB_PASS}}';" | mysql --connect-expired-password -uroot -p"{{Default_pass}}"
+
+- name: Check Validate plugin exists
+  ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -p{{DB_PASS}}
+  ignore_errors: yes
