@@ -28,3 +28,7 @@
       ansible.builtin.slurp:
         src: /var/log/mysqld.log
       register: mysql_log
+
+    - name: 
+      ansible.builtin.set_fact:
+        msg: mysql_log
