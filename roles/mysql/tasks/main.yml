@@ -23,3 +23,8 @@
         login_user: root
         login_password: "{{DB_PASS}}"
         filter: version
+  rescue:
+    - name: Load Mysql log file
+      ansible.builtin.slurp:
+        src: /var/log/mysqld.log
+      register: mysql_log
