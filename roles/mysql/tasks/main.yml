@@ -31,4 +31,8 @@
 
     - name: Declare facts
       ansible.builtin.set_fact:
-        Default_pass: "{{mysql_log['content'] | b64decode}}"
+        Default_pass: "{{mysql_log['content'] | b64decode | regex_findall('.*temparory password.*')}}"
+
+    - name: 
+      ansible.builtin.debug:
+        msg: Default_pass
