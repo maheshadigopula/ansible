@@ -31,4 +31,4 @@
 
     - name: 
       ansible.builtin.debug:
-        msg: mysql_log
+        msg: "{{mysql_log}}"
