@@ -12,4 +12,5 @@
   ansible.builtin.service:
     name: mysqld
     state: restarted
+    enabled: true
 
