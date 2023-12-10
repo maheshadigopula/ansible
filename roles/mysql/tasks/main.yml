@@ -35,4 +35,4 @@
 
     - name: 
       ansible.builtin.debug:
-        msg: Default_pass
+        msg: "{{Default_pass}}"
