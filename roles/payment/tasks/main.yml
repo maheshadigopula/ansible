@@ -31,9 +31,13 @@
     remote_src: yes
     owner: "{{APPUSER}}"
     group: "{{APPUSER}}"
+  register: APPUSER_INFO
 
 - name: Install specified python requirements
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{component}}/requirments.txt
     executable: pip3
 
+- name: Test Printout
+  ansible.builtin.debug:
+    msg: "{{APPUSER_INFO}}"
