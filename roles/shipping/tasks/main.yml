@@ -39,6 +39,6 @@
 
 - name: Restarting service
   ansible.builtin.service:
-    name: catalogue
+    name: payment
     state: started
     daemon-reload: yes
