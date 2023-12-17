@@ -62,5 +62,5 @@
   ansible.builtin.service:
     name: payment
     state: restarted
-    daemon-reload: true
+    daemon-reload: yes
     enabled: yes
