@@ -1,5 +1,5 @@
 - name: Installing python modules
-  ansbile.builtin.yum:
+  ansible.builtin.yum:
     name: "{{item}}"
     state: present
   loop:
