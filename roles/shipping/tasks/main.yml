@@ -34,11 +34,11 @@
 
 - name: Configuring the systemd service file
   ansible.builtin.template:
-    src: payment.service
+    src: shipping.service
     dest: /etc/systemd/system/{{component}}.service
 
 - name: Restarting service
   ansible.builtin.service:
-    name: payment
+    name: shipping
     state: started
     daemon-reload: yes
