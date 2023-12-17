@@ -5,6 +5,7 @@
   loop:
     - python3
     - gcc
+    - pip3
     - python3-devel
 
 - name: Creating the user {{APPUSER}}
