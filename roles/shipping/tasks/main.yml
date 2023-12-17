@@ -2,3 +2,28 @@
   ansible.builtin.yum:
     name: maven
     state: present
+
+- name: Creating the user {{APPUSER}}
+  ansible.builtin.user:
+    name: "{{APPUSER}}"
+    comment: roboshop service user
+
+- name: Download and extracting
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/{{component}}/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Cleaning the OLD content
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{component}}/
+    state: absent
+
+- name: Copying files to roboshop home directory
+  ansible.builtin.copy:
+    src: /tmp/{{component}}-main/
+    dest: /home/{{APPUSER}}/{{component}}/
+    remote_src: yes
+    owner: "{{APPUSER}}"
+    group: "{{APPUSER}}"
+
