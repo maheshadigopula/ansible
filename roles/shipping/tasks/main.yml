@@ -32,3 +32,7 @@
   args:
     chdir: /home/{{APPUSER}}/{{component}}
 
+- name: Configuring the systemd service file
+  ansible.builtin.template:
+    src: payment.service
+    dest: /etc/systemd/system/{{component}}.service
