@@ -33,10 +33,10 @@
     group: "{{APPUSER}}"
   register: APPUSER_INFO
 
-- name: Install specified python requirements
+- name: Installing python dependencies 
   ansible.builtin.pip:
-    requirements: /home/{{APPUSER}}/{{component}}/requirments.txt
-    executable: pip3 install --roboshop
+    requirements: /home/{{APPUSER}}/{{component}}/requirements.txt
+    executable: pip3
 
 - name: Test Printout
   ansible.builtin.debug:
