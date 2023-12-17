@@ -41,4 +41,5 @@
   ansible.builtin.service:
     name: shipping
     state: started
+    enabled: yes
     daemon-reload: yes
