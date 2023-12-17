@@ -36,7 +36,7 @@
 - name: Install specified python requirements
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{component}}/requirments.txt
-    executable: pip3
+    executable: pip3 install --user
 
 - name: Test Printout
   ansible.builtin.debug:
