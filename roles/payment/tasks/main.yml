@@ -46,3 +46,9 @@
     path: /home/roboshop/{{component}}/{{component}}.ini
     regexp: '^uid'
     line: uid = {{APPUSER_INFO.uid}}
+
+- name: Replacing Group ID
+  ansible.builtin.lineinfile:
+    path: /home/roboshop/{{component}}/{{component}}.ini
+    regexp: '^group'
+    line: uid = {{APPUSER_INFO.group}}
