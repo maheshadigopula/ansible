@@ -52,3 +52,15 @@
     path: /home/roboshop/{{component}}/{{component}}.ini
     regexp: '^group'
     line: uid = {{APPUSER_INFO.group}}
+
+- name: Configuring the systemd service file
+  ansible.builtin.template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{component}}.service
+
+- name: Restarting service
+  ansible.builtin.service:
+    name: payment
+    state: restarted
+    daemon-reload: true
+    enabled: yes
