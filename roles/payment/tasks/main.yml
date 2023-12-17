@@ -1,7 +1,7 @@
 - name: Installing python modules
   ansible.builtin.yum:
     name: "{{item}}"
-    state: present
+    state: installed
   loop:
     - python3
     - gcc
