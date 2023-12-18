@@ -1,5 +1,5 @@
 - name: Configuring robot project
-  hosts: "{{component}}"
+  hosts: localhost
   become: yes
   roles:
     - "{{component}}"
