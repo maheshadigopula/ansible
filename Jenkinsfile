@@ -1,15 +1,35 @@
 pipeline {
-    agent any
-    environment{
-        SSH_CREDS = credentials('SSH_CREDS')
+    agent any 
+    environment {                                       // Declaring at pipeline will allow all the stages to access this variable
+        SSH_CREDS = credentials('SSH_CREDS') 
     }
+    stages {
+        stage('Lint Checks') {
+            when { branch pattern: "feature-.*", comparator: "REGEXP" }
+            steps {
+                sh "env"
+                sh "echo runs only on feature branch"
+                sh "echo lint cheks are completed."
+            }
+        }  
 
-    stages{
-        stage('performing dry run') {
-            steps{
-                sh " env "
-                sh" ansible-playbook -i inv-dev robot.yml -e component=mongodb -e ansible_user=${SSH_CREDS_USR} -e ansible_password=${SSH_CREDS_PSW}"
+        stage('Performing a Dry-Run') {                 // Just for demo purpose we have hardcoded env and component; That can still be parameterised.
+            when { branch pattern: "PR-.*", comparator: "REGEXP"}
+            steps {
+                sh "env"
+                sh "Runs only aginst a PR"
+                // sh "ansible-playbook robot-dryrun.yml -e COMPONENT=frontend -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e ENV=dev"
+            }
+        }
+
+        stage('Runs against Main') {
+            when { branch 'main' }
+            steps {
+                sh "env"
+                sh "echo Main Branch"
             }
         }
     }
-}    
+}
+
+// Pushing changes to feature branch
