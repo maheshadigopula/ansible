@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {                                       // Declaring at pipeline will allow all the stages to access this variable
-        SSH_CRED = credentials('SSH_CRED') 
+        SSH_CRED = credentials('SSH_CREDS') 
     }
     stages {
         stage('Lint Checks') {
