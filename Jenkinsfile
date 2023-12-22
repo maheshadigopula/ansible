@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {                                       // Declaring at pipeline will allow all the stages to access this variable
-        SSH_CREDS = credentials('SSH_CREDS') 
+        SSH_CRED = credentials('SSH_CRED') 
     }
     stages {
         stage('Lint Checks') {
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh "env"
                 sh "Runs only aginst a PR"
-                // sh "ansible-playbook robot-dryrun.yml -e COMPONENT=frontend -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e ENV=dev"
+                sh "ansible-playbook robot-dryrun.yml -e COMPONENT=frontend -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW}"
             }
         }
 
@@ -29,7 +29,15 @@ pipeline {
                 sh "echo Main Branch"
             }
         }
+
+        stage('Runs against Tag') {
+            when { expression { env.TAG_NAME != null } }                       // TAG_NAME is an environment
+            steps {
+                sh "env"
+                sh "echo $TAG_NAME"
+            }
+        }
     }
 }
 
-// Pushing changes to feature branch
+// Pushing changes to feature branch
