@@ -23,13 +23,13 @@ pipeline {
 
         // }
 
-        // stage('Runs against Main') {
-        //     when { branch 'main' }
-        //     steps {
-        //         sh "env"
-        //         sh "echo Main Branch"
-        //     }
-        // }
+        stage('Runs against Main') {
+            when { branch 'main' }
+            steps {
+                sh "env"
+                sh "echo Main Branch"
+            }
+        }
 
         // stage('Runs against Tag') {
         //     when { expression { env.TAG_NAME != null } }                       // TAG_NAME is an env
