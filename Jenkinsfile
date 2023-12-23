@@ -30,6 +30,7 @@ pipeline {
             }
         }
 
+
         stage('Runs against Tag') {
             when { expression { env.TAG_NAME != null } }                       // TAG_NAME is an environmen
             steps {
@@ -37,6 +38,14 @@ pipeline {
                 sh "echo $TAG_NAME"
             }
         }
+        // stage('Runs against Tag') {
+        //     when { expression { env.TAG_NAME != null } }                       // TAG_NAME is an environment
+        //     steps {
+        //         sh "env"
+        //         sh "echo $TAG_NAME"
+        //     }
+        // }
+
     }
 }
 
