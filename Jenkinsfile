@@ -20,7 +20,10 @@ pipeline {
                 sh "Runs only aginst a PR"
                 //sh "ansible-playbook robot-dryrun.yml -e component=frontend -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e ENV=dev"
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1590fd136a0e33c2c65cbe388dc3da6b8e1f1b30
         }
 
         stage('Runs against Main') {
@@ -31,13 +34,30 @@ pipeline {
             }
         }
 
+<<<<<<< HEAD
         stage('Runs against Tag') {
             when { expression { env.TAG_NAME != null } }                       // TAG_NAME is an env
+=======
+
+        stage('Runs against Tag') {
+            when { expression { env.TAG_NAME != null } }                       // TAG_NAME is an environmen
+>>>>>>> 1590fd136a0e33c2c65cbe388dc3da6b8e1f1b30
             steps {
                 sh "env"
                 sh "echo $TAG_NAME"
             }
         }
+<<<<<<< HEAD
+=======
+        // stage('Runs against Tag') {
+        //     when { expression { env.TAG_NAME != null } }                       // TAG_NAME is an environment
+        //     steps {
+        //         sh "env"
+        //         sh "echo $TAG_NAME"
+        //     }
+        // }
+
+>>>>>>> 1590fd136a0e33c2c65cbe388dc3da6b8e1f1b30
     }
 }
 
